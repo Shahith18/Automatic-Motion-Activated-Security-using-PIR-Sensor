@@ -1,4 +1,6 @@
 # Automatic-Motion-Activated-Security-using-PIR-Sensor
+
+
 ## AIM:
              To detect motion using a PIR sensor connected to an Arduino and trigger an LED (using the built-in LED) when motion is sensed.
              
@@ -11,6 +13,9 @@
 6.	Jumper wires – As required
 7.	USB Cable – 1 No (for uploading code and powering Arduino)
 8.	Computer with Tinkercad or Arduino IDE installed
+## Circuit Diagram:
+![WhatsApp Image 2025-10-28 at 18 18 37_5a6d1c06](https://github.com/user-attachments/assets/baf20bf7-64ab-4612-9526-8f124909986e)
+
 
 ## Theory:
 
@@ -24,7 +29,7 @@ Circuit Diagram:
 Step 1: Set Up the Tinkercad Environment
 1.	Log in to Tinkercad: Open https://www.tinkercad.com in your browser and log in to your account.
 2.	Create a New Circuit: In the Tinkercad dashboard, click on “Circuits” and then select “Create New Circuit” to open a new simulation workspace.
-3.	
+   
 Step 2: Add Components to the Circuit
 1.	Arduino Uno: Drag and drop the Arduino Uno R3 board from the components panel into your workspace.
 2.	PIR Sensor: Search for the PIR sensor in the components panel and drag it into the workspace.
@@ -60,14 +65,34 @@ Step 7: Save Your Work
 
 
 # Code:
-
+```
+int buttonState = 0;
+void setup()
+{
+  pinMode(2, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+void loop()
+{
+  buttonState = digitalRead(2);
+  if (buttonState == HIGH)
+  {
+    digitalWrite(LED_BUILTIN, HIGH);
+  }
+  else
+  {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  delay(10);
+}
+```
 
 
 # Output:
+![506549545-84a96f6a-cb87-4f00-85b3-6605ffe8741e](https://github.com/user-attachments/assets/098fac84-6927-49fd-a4fe-6e96ca8447dc)
 
-
+![506549610-6a3b6e32-3114-43fd-b95f-549ee0d42f46](https://github.com/user-attachments/assets/7f5c943f-d819-4307-80cb-f091f0fc76f1)
 
 
 # Result:
 The PIR sensor successfully detected motion and triggered the Arduino to turn ON the built-in LED. The LED remained OFF when no motion was present, confirming correct circuit and code functionality.
-
